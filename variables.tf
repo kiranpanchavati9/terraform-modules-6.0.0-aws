@@ -49,3 +49,21 @@ variable components {
     "mongodb" = ""
   }
 }
+
+variable zone_id {
+  description = "The Route 53 zone ID for the frontend application"
+  type        = string
+  default     = "Z01214421PKKTLXAI5VN5"
+}
+
+variable type {
+  description = "The record type for the Route 53 record"
+  type        = string
+  default     = "A"
+}
+
+variable ttl {
+  description = "The TTL for the Route 53 record"
+  type        = number
+  default     = 300
+}

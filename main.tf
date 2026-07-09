@@ -13,3 +13,11 @@ module "ec2-module" {
   vpc_security_group_ids = [module.network-module.security_group_id]
   tags                   = {}
 }
+
+
+module "s3-records" {
+  source = "./s3-records"
+  zone_id = var.zone_id
+  type = var.type
+  ttl = var.ttl
+}
