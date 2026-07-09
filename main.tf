@@ -15,8 +15,8 @@ module "ec2-module" {
 }
 
 
-module "53-records" {
-  source = "./s3-records"
+module "route53-module" {
+  source = "./route53-module"
   zone_id = var.zone_id
   type = var.type
   ttl = var.ttl
