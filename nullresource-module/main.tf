@@ -1,11 +1,12 @@
 resource "null_resource" "splunk_provisioner" {
+  for_each = var.components
 
   provisioner "remote-exec" {
     connection {
       type        = var.ssh_type
       user        = var.ssh_user
-      private_key = file("var.ssh_private_key")
-      host = var.instance_public_ips
+      private_key = file(var.ssh_private_key)
+      host        = var.instance_public_ips[each.key]
     }
     inline = [
       "sudo cloud-init status --wait",
@@ -16,5 +17,4 @@ resource "null_resource" "splunk_provisioner" {
       "cd /home/ec2-user/splunk-script && chmod +x splunk.sh && sudo bash splunk.sh"
     ]
   }
-  
 }
