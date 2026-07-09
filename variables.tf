@@ -67,3 +67,21 @@ variable ttl {
   type        = number
   default     = 300
 }
+
+variable ssh_type{
+  description = "The type of SSH connection to use"
+  type        = string
+  default     = "ssh"
+}
+
+variable ssh_user{
+  description = "The user to use for the SSH connection"
+  type        = string
+  default     = "ec2-user"
+}
+
+variable ssh_private_key{
+  description = "The private key to use for the SSH connection"
+  type        = string
+  default     = "/home/ec2-user/.ssh/aws-helpag.pem"
+}
