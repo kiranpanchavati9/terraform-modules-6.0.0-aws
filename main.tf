@@ -29,6 +29,5 @@ module "nullresource-module" {
   ssh_user = var.ssh_user
   ssh_private_key = var.ssh_private_key
   instance_public_ips = module.ec2-module.instance_public_ips
-  components = var.components
   depends_on = [module.ec2-module, module.route53-module, module.network-module]
 }
