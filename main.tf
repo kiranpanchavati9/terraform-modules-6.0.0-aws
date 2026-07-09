@@ -15,7 +15,7 @@ module "ec2-module" {
 }
 
 
-module "s3-records" {
+module "53-records" {
   source = "./s3-records"
   zone_id = var.zone_id
   type = var.type
