@@ -20,4 +20,5 @@ module "route53-module" {
   type = var.type
   ttl = var.ttl
   components = var.components
+  instance_ips = module.ec2-module.instance_public_ips
 }

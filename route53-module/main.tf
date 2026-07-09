@@ -4,5 +4,5 @@ resource "aws_route53_record" "a-records" {
   name    = each.key
   type    = var.type
   ttl     = var.ttl
-  records = [module.ec2-module.instance_id[each.key].public_ip]
+  records = [var.instance_ips[each.key]]
 }
