@@ -5,7 +5,7 @@ resource "null_resource" "splunk_provisioner" {
       type        = var.ssh_type
       user        = var.ssh_user
       private_key = file("var.ssh_private_key")
-      host        = var.instance_public_ips[each.key]
+      host = var.instance_public_ips[each.key]
     }
     inline = [
       "sudo cloud-init status --wait",
