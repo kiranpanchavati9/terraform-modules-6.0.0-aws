@@ -1,11 +1,11 @@
 resource "null_resource" "splunk_provisioner" {
-    
+
   provisioner "remote-exec" {
     connection {
       type        = var.ssh_type
       user        = var.ssh_user
       private_key = file("var.ssh_private_key")
-      host        = each.value
+      host        = var.instance_public_ips[each.key]
     }
     inline = [
       "sudo cloud-init status --wait",
