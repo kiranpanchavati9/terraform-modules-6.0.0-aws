@@ -28,4 +28,11 @@ module "nullresource-module" {
   ssh_type = var.ssh_type
   ssh_user = var.ssh_user
   ssh_private_key = var.ssh_private_key
+  instance_public_ips = module.ec2-module.instance_public_ips
+  components = var.components
+  depends_on = [module.route53-module.a-records
+                  ,module.network-module.security_group
+                  ,module.network-module.security_group_ingress_rule
+                  ,module.network-module.security_group_ingress_rule
+                  ,module.network-module.security_group_egress_rule]
 }
