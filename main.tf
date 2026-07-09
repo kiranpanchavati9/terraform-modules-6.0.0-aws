@@ -19,4 +19,5 @@ module "route53-module" {
   zone_id = var.zone_id
   type = var.type
   ttl = var.ttl
+  components = var.components
 }
