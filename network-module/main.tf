@@ -13,9 +13,9 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ports_firewall_aws" {
   from_port         = 443
   ip_protocol       = "tcp"
   to_port           = 443
-    tags = {
-        Name = "allow_ports_firewall_aws_ingress"
-    }
+  tags = {
+    Name = "allow_ports_firewall_aws_ingress"
+  }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_all_traffic_ipv4" {

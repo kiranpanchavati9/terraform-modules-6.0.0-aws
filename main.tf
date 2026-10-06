@@ -15,20 +15,20 @@ module "ec2-module" {
 }
 
 module "route53-module" {
-  source = "./route53-module"
-  zone_id = var.zone_id
-  type = var.type
-  ttl = var.ttl
-  components = var.components
+  source       = "./route53-module"
+  zone_id      = var.zone_id
+  type         = var.type
+  ttl          = var.ttl
+  components   = var.components
   instance_ips = module.ec2-module.instance_public_ips
 }
 
 module "nullresource-module" {
-  source = "./nullresource-module"
-  ssh_type = var.ssh_type
-  ssh_user = var.ssh_user
-  ssh_private_key = var.ssh_private_key
+  source              = "./nullresource-module"
+  ssh_type            = var.ssh_type
+  ssh_user            = var.ssh_user
+  ssh_private_key     = var.ssh_private_key
   instance_public_ips = module.ec2-module.instance_public_ips
   components          = var.components
-  depends_on = [module.ec2-module, module.route53-module, module.network-module]
+  depends_on          = [module.ec2-module, module.route53-module, module.network-module]
 }
